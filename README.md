@@ -2,11 +2,11 @@
 
 DevOn analyzes your GitHub activity, coding patterns, and collaboration history to find the most compatible developers for pair programming, open‑source contributions, and project co‑creation.
 
-> **Status**: 🚧 Early development – MVP in progress. Contributions and ideas are welcome!
+> **Status**:  Early development – MVP in progress. Contributions and ideas are welcome!
 
 ---
 
-## 🎯 Why DevOn?
+##  Why DevOn?
 
 Finding a good coding partner is hard. Existing platforms rely on self‑reported skills or superficial social networks. DevOn uses **real data** from GitHub and **AI embeddings** to match developers based on:
 
@@ -17,7 +17,7 @@ Finding a good coding partner is hard. Existing platforms rely on self‑reporte
 
 ---
 
-## ✨ Features (Planned & In Progress)
+##  Features (Planned & In Progress)
 
 | Feature | Description | Status |
 |---------|-------------|--------|
@@ -31,7 +31,7 @@ Finding a good coding partner is hard. Existing platforms rely on self‑reporte
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Backend**: Python 3.12+ (FastAPI) – *or Node.js (Express) – to be decided*
 - **AI & Embeddings**: Google Gemini API (`text-embedding-004`) / OpenAI (`text-embedding-ada-002`)
@@ -43,7 +43,7 @@ Finding a good coding partner is hard. Existing platforms rely on self‑reporte
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -94,7 +94,7 @@ uvicorn backend.main:app --reload
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 DevOn/
@@ -119,7 +119,7 @@ DevOn/
 
 ---
 
-## 🤝 How to Contribute
+##  How to Contribute
 
 We follow GitHub Flow – all changes happen via Pull Requests.
 
@@ -141,12 +141,12 @@ git push origin feature/your-amazing-idea
 
 ---
 
-## 📄 License
+##  License
 Distributed under the MIT License. See the LICENSE file for more information.
 
 ---
 
-## 🙏 Acknowledgements
+##  Acknowledgements
 - GitHub REST API
 - GitHub GraphQL API
 - Open Source Guides
@@ -155,7 +155,7 @@ Distributed under the MIT License. See the LICENSE file for more information.
 
 ---
 
-## 📬 Contact & Community
+##  Contact & Community
 - Open an issue
 - Start a Discussion
 - Join our future Discord
