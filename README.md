@@ -1,4 +1,4 @@
-# DevOn ⚡ – AI-Powered Developer Matchmaker
+# DevOn - AI-Powered Developer Matchmaker
 
 > **Find your ideal pair programming partner, open-source co-creator, and tech mentor through real GitHub telemetry, circadian rhythm analytics, and AI vector embeddings.**
 
@@ -9,7 +9,7 @@
 
 ---
 
-## 💡 Why DevOn?
+## Why DevOn?
 
 Finding a compatible coding partner is notoriously hard. Existing platforms rely on self-reported questionnaires, outdated resumes, or superficial social connections. 
 
@@ -21,23 +21,23 @@ Finding a compatible coding partner is notoriously hard. Existing platforms rely
 
 ---
 
-## ✨ Features
+## Features
 
-- **🚀 Live GitHub Profile Analyzer**: Input any GitHub username to automatically synthesize their language breakdown, experience tier, and coding rhythm.
-- **🧠 Multidimensional Matchmaking Engine**: Computes granular compatibility scores across Skill Complementarity, Schedule Sync, Domain Overlap, and Experience Tier Synergy.
-- **🔍 4 Matching Strategies**:
+- **Live GitHub Profile Analyzer**: Input any GitHub username to automatically synthesize their language breakdown, experience tier, and coding rhythm.
+- **Multidimensional Matchmaking Engine**: Computes granular compatibility scores across Skill Complementarity, Schedule Sync, Domain Overlap, and Experience Tier Synergy.
+- **4 Matching Strategies**:
   - `Complementary`: Cross-disciplinary synergy (Backend + Frontend, AI/ML + DevOps).
   - `Similar`: Same-stack mastery (Python specialist + Python specialist).
   - `Peer Learning`: Similar experience tiers for parallel exploration.
   - `Mentorship`: Senior / Staff engineers paired with Junior / Mid-level learners.
-- **📊 Side-by-Side Comparison Modal**: Inspect two developers side-by-side with metric progress bars, shared synergies, and timezone gap analysis.
-- **📋 AI Collaboration Pitch Generator**: Automatically drafts high-converting outreach icebreakers and proposes concrete joint project concepts tailored to both developers' skillsets.
-- **🤖 Built-in AI Pair Assistant**: Slide-out assistant drawer to answer questions about schedule overlap, tech stack synergies, and icebreakers.
-- **🎨 Glassmorphic Cyber-Minimalist Web Dashboard**: Modern, dark-mode single-page application served directly by FastAPI.
+- **Side-by-Side Comparison Modal**: Inspect two developers side-by-side with metric progress bars, shared synergies, and timezone gap analysis.
+- **AI Collaboration Pitch Generator**: Automatically drafts high-converting outreach icebreakers and proposes concrete joint project concepts tailored to both developers' skillsets.
+- **Built-in AI Pair Assistant**: Slide-out assistant drawer to answer questions about schedule overlap, tech stack synergies, and icebreakers.
+- **Glassmorphic Cyber-Minimalist Web Dashboard**: Modern, dark-mode single-page application served directly by FastAPI.
 
 ---
 
-## 🏛️ System Architecture
+## System Architecture
 
 ```
 ┌───────────────────────────────────────────────────────────────┐
@@ -67,7 +67,7 @@ Finding a compatible coding partner is notoriously hard. Existing platforms rely
 
 ---
 
-## 🚀 Quickstart & Installation
+## Quickstart & Installation
 
 ### 1. Prerequisites
 - Python 3.12 or higher
@@ -109,7 +109,7 @@ Open your browser and navigate to:
 
 ---
 
-## 🧪 Running Tests
+## Running Tests
 
 DevOn includes an automated test suite covering all services, vectorizers, matchmakers, and REST endpoints:
 
@@ -130,7 +130,7 @@ tests/test_matchmaker.py::test_evaluate_pair_complementary_synergy PASSED
 
 ---
 
-## 📡 API Reference
+## API Reference
 
 | Endpoint | Method | Description |
 |---|---|---|
@@ -145,7 +145,7 @@ tests/test_matchmaker.py::test_evaluate_pair_complementary_synergy PASSED
 
 ---
 
-## 📐 Matchmaking Formula
+## Matchmaking Formula
 
 The compatibility score between two developers is calculated as:
 
@@ -155,7 +155,7 @@ See [docs/MATCHING_ALGORITHM.md](docs/MATCHING_ALGORITHM.md) for full mathematic
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 DevOn/
@@ -182,7 +182,7 @@ DevOn/
 
 ---
 
-## 📄 License
+## License
 Distributed under the MIT License. See [LICENSE](LICENSE) for details.
 
-Developed with ❤️ by **[Soroush Soleimani](https://github.com/SoroushSoleimani)**.
+Developed by **[Soroush Soleimani](https://github.com/SoroushSoleimani)**.
