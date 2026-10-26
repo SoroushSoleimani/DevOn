@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevOn – AI Developer Matchmaker</title>
+  <meta name="description" content="AI-powered developer matchmaker finding compatible coding partners using GitHub data analysis, work rhythm insights, and vector embeddings.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <a href="/" class="logo-group">
+        <div class="logo-icon">⚡</div>
+        <div class="logo-text">DevOn</div>
+      </a>
+      <div class="nav-links">
+        <div class="status-badge" id="systemStatus">
+          <div class="status-dot"></div>
+          <span>AI Engine Ready</span>
+        </div>
+        <a href="/docs" target="_blank" class="btn btn-glass" id="apiDocsBtn">API Docs</a>
+        <a href="/api/v1/auth/login" class="btn btn-primary" id="githubAuthBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>Sign In</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-pill">✨ Powered by GitHub Graph Analysis & Vector Embeddings</div>
+      <h1 class="hero-title">Find Your Perfect Coding Partner<br>Through <span>GitHub DNA</span></h1>
+      <p class="hero-subtitle">
+        DevOn goes beyond self-reported skills. We analyze repository velocity, tech-stack complementarity, 
+        and coding rhythm to pair you with developers who complete your engineering superpowers.
+      </p>
+
+      <!-- Live Search Box -->
+      <div class="search-container">
+        <form id="searchForm" class="search-box">
+          <input type="text" id="usernameInput" class="search-input" placeholder="Enter any GitHub username (e.g. SoroushSoleimani)..." autocomplete="off" value="SoroushSoleimani">
+          <button type="submit" class="btn btn-primary" id="analyzeBtn">Analyze & Match</button>
+        </form>
+      </div>
+
+      <!-- Quick Seed Selection -->
+      <div class="quick-picks">
+        <span class="quick-label">Try quick demos:</span>
+        <button class="badge-tag active" data-user="SoroushSoleimani">SoroushSoleimani (Backend / AI)</button>
+        <button class="badge-tag" data-user="elena-codes">elena-codes (Frontend / UI)</button>
+        <button class="badge-tag" data-user="marcus-devops">marcus-devops (DevOps / Go)</button>
+        <button class="badge-tag" data-user="priya-ai">priya-ai (RAG / PyTorch)</button>
+        <button class="badge-tag" data-user="alex-systems">alex-systems (Rust / Systems)</button>
+      </div>
+    </section>
+
+    <!-- Active User Profile Banner -->
+    <section class="user-banner" id="userBanner">
+      <div class="user-banner-grid">
+        <div class="user-avatar-wrap">
+          <img id="userAvatar" src="https://avatars.githubusercontent.com/u/140951703?v=4" alt="Avatar" class="user-avatar">
+        </div>
+        <div class="user-info">
+          <h2 id="userName">Soroush Soleimani <span style="font-size: 15px; color: var(--text-muted); font-weight: normal;" id="userLogin">@SoroushSoleimani</span></h2>
+          <div class="user-meta-chips" id="userChips">
+            <span class="chip chip-role" id="userRoleChip">Backend Developer</span>
+            <span class="chip chip-rhythm" id="userRhythmChip">Night Owl (Late Night)</span>
+            <span class="chip" id="userTierChip">Senior</span>
+            <span class="chip" id="userLocationChip">Tehran, Iran</span>
+          </div>
+          <p class="user-bio" id="userBio">AI & Full-Stack Developer | Building autonomous systems & collaborative dev tools.</p>
+        </div>
+        <div class="user-stats-box">
+          <div class="stat-item">
+            <div class="stat-value" id="userReposCount">18</div>
+            <div class="stat-label">Public Repos</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="userStarsCount">42</div>
+            <div class="stat-label">Total Stars</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="userFollowersCount">34</div>
+            <div class="stat-label">Followers</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter Controls Bar -->
+    <section class="filter-bar">
+      <div class="mode-pills" id="modePills">
+        <button class="mode-pill active" data-mode="complementary">⚡ Complementary (Synergy)</button>
+        <button class="mode-pill" data-mode="similar">🎯 Similar (Same Stack)</button>
+        <button class="mode-pill" data-mode="peer_learning">🤝 Peer Learning</button>
+        <button class="mode-pill" data-mode="mentorship">🎓 Mentorship</button>
+      </div>
+
+      <div class="filter-selects">
+        <select id="roleFilter" class="select-custom">
+          <option value="">All Roles</option>
+          <option value="Frontend Developer">Frontend Developer</option>
+          <option value="Backend Developer">Backend Developer</option>
+          <option value="DevOps & Cloud">DevOps & Cloud</option>
+          <option value="AI / Machine Learning">AI / Machine Learning</option>
+          <option value="Systems / Low-Level">Systems / Low-Level</option>
+          <option value="Mobile Developer">Mobile Developer</option>
+        </select>
+        <select id="rhythmFilter" class="select-custom">
+          <option value="">Any Schedule</option>
+          <option value="Night Owl (Late Night)">Night Owl</option>
+          <option value="Early Bird (Morning)">Early Bird</option>
+          <option value="Balanced">Steady All-Day</option>
+          <option value="Weekend Focus">Weekend Focus</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Matches Grid -->
+    <section>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h3 style="font-size: 20px; font-weight: 700;">Recommended Pairing Matches (<span id="matchesCount">0</span>)</h3>
+        <span style="font-size: 13px; color: var(--text-muted);">Ranked by multidimensional compatibility</span>
+      </div>
+      <div class="matches-grid" id="matchesGrid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Side-by-Side Comparison Modal -->
+  <div class="modal-overlay" id="compareModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeCompareModal">&times;</button>
+      <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 20px; text-align: center;">Developer Synergy Breakdown</h3>
+
+      <div class="compare-header">
+        <div class="compare-card">
+          <img id="compAvatarA" src="" alt="" style="width: 56px; height: 56px; border-radius: 50%; margin-bottom: 8px;">
+          <h4 id="compNameA" style="font-size: 16px;">Dev A</h4>
+          <span id="compRoleA" class="chip chip-role" style="font-size: 11px;">Backend</span>
+        </div>
+        <div class="compare-vs">VS</div>
+        <div class="compare-card">
+          <img id="compAvatarB" src="" alt="" style="width: 56px; height: 56px; border-radius: 50%; margin-bottom: 8px;">
+          <h4 id="compNameB" style="font-size: 16px;">Dev B</h4>
+          <span id="compRoleB" class="chip chip-role" style="font-size: 11px;">Frontend</span>
+        </div>
+      </div>
+
+      <div class="breakdown-bars" id="modalBreakdownBars" style="margin-bottom: 24px;">
+        <!-- Injected dynamically -->
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <h4 style="font-size: 14px; font-weight: 700; color: var(--accent-cyan); margin-bottom: 8px;">Synergy Highlights</h4>
+        <ul id="compSynergiesList" style="padding-left: 18px; color: var(--text-secondary); font-size: 13px; line-height: 1.8;"></ul>
+      </div>
+
+      <div style="display: flex; gap: 12px; justify-content: flex-end;">
+        <button class="btn btn-glass" id="closeCompareBtn">Close</button>
+        <button class="btn btn-primary" id="openPitchFromCompareBtn">Generate Collab Pitch</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Collaboration Pitch Modal -->
+  <div class="modal-overlay" id="pitchModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closePitchModal">&times;</button>
+      <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 8px;">Personalized Collaboration Pitch</h3>
+      <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 20px;">
+        AI-generated outreach message and tailored pair programming project concepts.
+      </p>
+
+      <div class="pitch-box" id="pitchTextBox">Loading pitch...</div>
+
+      <h4 style="font-size: 14px; font-weight: 700; color: var(--accent-cyan); margin-bottom: 10px;">Recommended Joint Project Concept</h4>
+      <div id="projectIdeaBox" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 16px; margin-bottom: 20px;">
+        <h5 id="ideaTitle" style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px;">Project Title</h5>
+        <p id="ideaDesc" style="font-size: 13px; color: var(--text-secondary); margin-bottom: 10px;">Description</p>
+        <div id="ideaStackChips" style="display: flex; gap: 6px; flex-wrap: wrap;"></div>
+      </div>
+
+      <div style="display: flex; gap: 12px; justify-content: flex-end;">
+        <button class="btn btn-glass" id="closePitchBtn">Done</button>
+        <button class="btn btn-primary" id="copyPitchBtn">📋 Copy Outreach Message</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating AI Assistant Drawer -->
+  <div class="ai-drawer minimized" id="aiDrawer">
+    <div class="drawer-header" id="drawerHeader">
+      <div class="drawer-title">
+        <span>🤖</span>
+        <span>DevOn AI Assistant</span>
+      </div>
+      <span style="font-size: 18px; color: var(--text-muted);" id="drawerToggleIcon">▲</span>
+    </div>
+    <div class="drawer-body" id="chatBody">
+      <div class="chat-bubble bubble-ai">
+        Hello! I'm your DevOn Pair Assistant. Ask me how two developers complement each other, 
+        or ask for custom project ideas for your stack!
+      </div>
+    </div>
+    <form class="drawer-footer" id="chatForm">
+      <input type="text" id="chatInput" class="drawer-input" placeholder="Ask pairing advice..." autocomplete="off">
+      <button type="submit" class="btn btn-primary" style="padding: 6px 12px;">Send</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>DevOn – AI-Powered Developer Matchmaker. Designed for the open-source community by <a href="https://github.com/SoroushSoleimani" target="_blank">Soroush Soleimani</a>.</p>
+    </div>
+  </footer>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
